@@ -3,4 +3,5 @@ module.exports = (socket) => {
     require('./heartrate')(socket);
     require('./movement')(socket);
     require('./temperature')(socket);
+    require('./battery')(socket);
 };
