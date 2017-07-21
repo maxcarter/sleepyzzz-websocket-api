@@ -1,1 +1,1 @@
-# smart-sleepies-data-stream-api
+# SleepyZzz WebSocket API

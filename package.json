@@ -1,0 +1,27 @@
+{
+  "name": "sleepyzzz-websocket-api",
+  "version": "1.0.0",
+  "description": "A WebSocket API for SleepyZzz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxcarter/sleepyzzz-websocket-api.git"
+  },
+  "author": "Maxwell Carter (https://github.com/maxcarter)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxcarter/sleepyzzz-websocket-api/issues"
+  },
+  "homepage": "https://github.com/maxcarter/sleepyzzz-websocket-api#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.3",
+    "winston": "^2.3.1"
+  }
+}
