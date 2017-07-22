@@ -1,7 +1,6 @@
 module.exports = {
-    mode: 'DEV', // [DEV/PROD]
+    mode: 'dev', // [dev/prod]
     log: 'sleepyzz.log',
-    tokenSecret: 'test',
     dev: {
         port: 8080,
         host: 'localhost',
@@ -9,7 +8,7 @@ module.exports = {
         database: {
             url: "",
             serviceAccount: "",
-            node: ""
+            node: "sleepyzzz-dev"
         }
     },
     prod: {
@@ -19,7 +18,7 @@ module.exports = {
         database: {
             url: "",
             serviceAccount: "",
-            node: ""
+            node: "sleepyzzz"
         }
     },
     api: {
