@@ -1,3 +1,4 @@
 module.exports = {
-    hello: require('./hello')
+    hello: require('./hello'),
+    database: require('./database')
 };
