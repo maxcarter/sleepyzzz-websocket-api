@@ -15,7 +15,7 @@ log.add(log.transports.File, {
     filename: config.log
 });
 
-if (config.mode === 'PROD') {
+if (config.mode === 'prod') {
     log.remove(log.transports.Console);
     mode = 'tiny';
     server = config.prod;
@@ -31,6 +31,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(morgan(mode));
+
+if (config.mode === 'dev') {
+  app.use(express.static('client'));
+  app.use('/node_modules', express.static('node_modules'));
+}
 
 var _server = app.listen(server.port, server.host, () => {
     log.info(`Server listening on port: ${server.port}`);
