@@ -5,12 +5,22 @@ module.exports = {
     dev: {
         port: 8080,
         host: 'localhost',
-        protocol: 'http'
+        protocol: 'http',
+        database: {
+            url: "",
+            serviceAccount: "",
+            node: ""
+        }
     },
     prod: {
         port: 3000,
         host: '',
-        protocol: ''
+        protocol: '',
+        database: {
+            url: "",
+            serviceAccount: "",
+            node: ""
+        }
     },
     api: {
         version: 'v1'
