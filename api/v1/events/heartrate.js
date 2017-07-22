@@ -24,7 +24,7 @@ module.exports = (socket) => {
                 timestamp: Date.now()
             };
             let collection = 'heartrate/' + result.baby;
-            ctrls.database.insert(collection, data);
+            ctrls.database.insert(collection, obj);
             // TODO: Perform anomaly analysis
         }).catch((error) => {
             log.error('Could not save heartrate data!');
