@@ -35,6 +35,14 @@
         };
         socket.emit('movement', data);
       }
+
+      if (String.fromCharCode(charCode) === 'b') {
+        var data = {
+          percentage: Math.random() * (100 - 0) + 0,
+          device: '-KpeRPjghebc5YjXyFSf'
+        };
+        socket.emit('battery', data);
+      }
     };
   </script>
 </head>
