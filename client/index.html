@@ -28,9 +28,9 @@
 
       if (String.fromCharCode(charCode) === 'm') {
         var data = {
-          yaw: 0,
-          pitch: 0,
-          roll: 0,
+          x: 0,
+          y: 0,
+          z: Math.random() * (210 - 20) + 20,
           device: '-KpeRPjghebc5YjXyFSf'
         };
         socket.emit('movement', data);

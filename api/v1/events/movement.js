@@ -13,16 +13,16 @@ module.exports = (socket) => {
             return;
         }
 
-        if (!('device' in data) || !('yaw' in data) || !('pitch' in data) || !('roll' in data)) {
+        if (!('device' in data) || !('x' in data) || !('y' in data) || !('z' in data)) {
             log.error('Missing required event payload');
             return;
         }
 
         ctrls.database.read('devices', data.device).then((result) => {
             let obj = {
-                yaw: data.yaw,
-                pitch: data.pitch,
-                roll: data.roll,
+                x: data.x,
+                y: data.y,
+                z: data.z,
                 timestamp: Date.now()
             };
             let collection = 'movement/' + result.baby;
