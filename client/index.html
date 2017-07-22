@@ -12,9 +12,18 @@ var socket = io.connect('http://localhost:8080');
       console.log(charCode);
       if (String.fromCharCode(charCode) === 'h') {
         var data = {
-          bpm: Math.random() * (200 - 50) + 50
+          bpm: Math.random() * (200 - 50) + 50,
+          device: '-KpeRPjghebc5YjXyFSf'
         };
         socket.emit('heartrate', data);
+      }
+
+      if (String.fromCharCode(charCode) === 't') {
+        var data = {
+          temperature: Math.random() * (40 - 33) + 33,
+          device: '-KpeRPjghebc5YjXyFSf'
+        };
+        socket.emit('temperature', data);
       }
   };
   </script>
