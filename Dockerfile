@@ -32,9 +32,6 @@ RUN cd /var/www/production/sleepyzzz-websocket-api && npm install
 # Start PM2
 RUN pm2 start ecosystem.config.js
 
-# Start NGINX
-RUN service nginx start
-
 EXPOSE 80
 
-CMD pm2 logs
+CMD /usr/sbin/nginx
