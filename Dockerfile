@@ -1,7 +1,10 @@
 # docker build -t sleepyzzz-websocket-api .
 # docker run -d -p 80:80 sleepyzzz-websocket-api
-# docker ps
+# docker ps -a
 # docker exec -it <container id> bash
+
+# To stop: docker stop <container id>
+# To remove: docker rm <container id>
 
 # To list images: docker images -a
 # To delete images: docker rmi <ImageId>
@@ -26,6 +29,9 @@ RUN mkdir /var/www/production
 ADD server /var/www/production/sleepyzzz-websocket-api
 RUN cd /var/www/production/sleepyzzz-websocket-api && npm install
 
+# Start NGINX
+RUN service nginx start
+
 EXPOSE 80
 
-CMD pm2 start ecosystem.config.js && /usr/sbin/nginx
+CMD pm2 start ecosystem.config.js && pm2 logs
