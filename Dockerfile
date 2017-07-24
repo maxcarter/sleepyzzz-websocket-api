@@ -29,9 +29,6 @@ RUN mkdir /var/www/production
 ADD server /var/www/production/sleepyzzz-websocket-api
 RUN cd /var/www/production/sleepyzzz-websocket-api && npm install
 
-# Start PM2
-RUN pm2 start ecosystem.config.js
-
 EXPOSE 80
 
-CMD /usr/sbin/nginx
+CMD pm2 start ecosystem.config.js && service nginx start
