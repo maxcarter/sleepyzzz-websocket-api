@@ -41,4 +41,11 @@ var _server = app.listen(server.port, server.host, () => {
     log.info(`Server listening on port: ${server.port}`);
 });
 
+app.get('/hello', (req, res) => {
+  let response = {
+    data: 'Hello World'
+  }
+  res.json(response)
+})
+
 require('./api')(app, _server);
