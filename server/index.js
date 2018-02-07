@@ -42,10 +42,21 @@ var _server = app.listen(server.port, server.host, () => {
 });
 
 app.get('/hello', (req, res) => {
+  log.info('GET /hello');
   let response = {
     data: 'Hello World'
   }
   res.json(response)
-})
+});
+
+app.post('/hello', (req, res) => {
+  log.info('POST /hello');
+  log.info(req.body);
+  let response = {
+    data: 'Hello World',
+    request: req.body
+  };
+  res.json(response);
+});
 
 require('./api')(app, _server);
