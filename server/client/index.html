@@ -84,8 +84,8 @@
     .table {
       margin-top: 30px;
       display: block;
-      width: 500px;
-      height: 500px;
+      width: 600px;
+      height: 550px;
       border-radius: 30px;
       border: 2px solid #4B5861;
     }
@@ -95,7 +95,7 @@
 
       border-left: 0px !important;
       border-right: 0px !important;
-      width: 250px;
+      width: 300px;
       padding-top: 20px !important;
       padding-bottom: 10px !important;
       padding-left: 20px !important;
@@ -116,6 +116,14 @@
     <h1>SleepyZzz <small>Simulator</small></h1>
 
     <table class="table">
+      <tr>
+        <td>
+          <span>Device</span>
+        </td>
+        <td>
+          <span>-KpeRPjghebc5YjXyFSf</span>
+        </td>
+      </tr>
       <tr>
         <td>
           <span>Heart Rate</span>
@@ -171,7 +179,147 @@
         </td>
         <td>
           <span id="movement">
-            x: 0.00<br>y: 0.00<br>z: 0.00<br>
+            x: 0.00<br>y: 0.00<br>z: 0.00<br>fall: 0<br>
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <table class="table">
+      <tr>
+        <td>
+          <span>Device</span>
+        </td>
+        <td>
+          <span>-L5Kt_nen-F3uOhXll2s</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Heart Rate</span>
+        </td>
+        <td>
+          <label class="switch" id="simHeartRate2">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Temperature</span>
+        </td>
+        <td>
+          <label class="switch" id="simTemperature2">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </td>
+      </tr>
+      <tr class="break">
+        <td>
+          <span>Movement</span>
+        </td>
+        <td>
+          <label class="switch" id="simMovement2">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Heart Rate</span>
+        </td>
+        <td>
+          <span id="heartrate2">0</span> BPM
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Temperature</span>
+        </td>
+        <td>
+          <span id="temperature2">0</span> <sup>o</sup>C
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Movement</span>
+        </td>
+        <td>
+          <span id="movement2">
+            x: 0.00<br>y: 0.00<br>z: 0.00<br>fall: 0<br>
+          </span>
+        </td>
+      </tr>
+    </table>
+
+    <table class="table">
+      <tr>
+        <td>
+          <span>Device</span>
+        </td>
+        <td>
+          <span>-L5KvH-aTUSfnrBDdF1H</span>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Heart Rate</span>
+        </td>
+        <td>
+          <label class="switch" id="simHeartRate3">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Temperature</span>
+        </td>
+        <td>
+          <label class="switch" id="simTemperature3">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </td>
+      </tr>
+      <tr class="break">
+        <td>
+          <span>Movement</span>
+        </td>
+        <td>
+          <label class="switch" id="simMovement3">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Heart Rate</span>
+        </td>
+        <td>
+          <span id="heartrate3">0</span> BPM
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Temperature</span>
+        </td>
+        <td>
+          <span id="temperature3">0</span> <sup>o</sup>C
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>Movement</span>
+        </td>
+        <td>
+          <span id="movement3">
+            x: 0.00<br>y: 0.00<br>z: 0.00<br>fall: 0<br>
           </span>
         </td>
       </tr>
@@ -186,6 +334,37 @@
   <script>
     var url = window.location.protocol + '//' + window.location.hostname + ':' + window.location.port
     var socket = io.connect(url);
+
+    socket.on('-KpedgUfDOSP0dTgoFP0:heartrate', function(data) {
+      $('#heartrate').text(data.bpm.toFixed(2));
+    });
+    socket.on('-KpedgUfDOSP0dTgoFP0:temperature', function(data) {
+      $('#temperature').text(data.temperature.toFixed(2));
+    });
+    socket.on('-KpedgUfDOSP0dTgoFP0:movement', function(data) {
+      $('#movement').html('x: ' + data.x.toFixed(2) + '<br>y: ' + data.y.toFixed(2) + '<br>z: ' + data.z.toFixed(2) + '<br>fall: ' + data.fall);
+    });
+
+    socket.on('-L5KsTg-Th-BLKf0n3B-:heartrate', function(data) {
+      $('#heartrate2').text(data.bpm.toFixed(2));
+    });
+    socket.on('-L5KsTg-Th-BLKf0n3B-:temperature', function(data) {
+      $('#temperature2').text(data.temperature.toFixed(2));
+    });
+    socket.on('-L5KsTg-Th-BLKf0n3B-:movement', function(data) {
+      $('#movement2').html('x: ' + data.x.toFixed(2) + '<br>y: ' + data.y.toFixed(2) + '<br>z: ' + data.z.toFixed(2) + '<br>fall: ' + data.fall);
+    });
+
+    socket.on('-L5KvH-aTUSfnrBDdF1F:heartrate', function(data) {
+      console.log(data)
+      $('#heartrate3').text(data.bpm.toFixed(2));
+    });
+    socket.on('-L5KvH-aTUSfnrBDdF1F:temperature', function(data) {
+      $('#temperature3').text(data.temperature.toFixed(2));
+    });
+    socket.on('-L5KvH-aTUSfnrBDdF1F:movement', function(data) {
+      $('#movement3').html('x: ' + data.x.toFixed(2) + '<br>y: ' + data.y.toFixed(2) + '<br>z: ' + data.z.toFixed(2) + '<br>fall: ' + data.fall);
+    });
 
     var heartrateInterval = null;
     var hr = $('#simHeartRate');
@@ -203,7 +382,6 @@
             device: '-KpeRPjghebc5YjXyFSf'
           };
           socket.emit('heartrate', data);
-          $('#heartrate').text(data.bpm.toFixed(2));
         }, 500);
       }
     });
@@ -225,7 +403,7 @@
             device: '-KpeRPjghebc5YjXyFSf'
           };
           socket.emit('temperature', data);
-          $('#temperature').text(data.temperature.toFixed(2));
+
         }, 500);
       }
     });
@@ -245,10 +423,150 @@
             x: Math.random() * (1 - 0) + 0,
             y: Math.random() * (1 - 0) + 0,
             z: Math.random() * (210 - 20) + 20,
+            fall: 1,
             device: '-KpeRPjghebc5YjXyFSf'
           };
           socket.emit('movement', data);
-          $('#movement').html('x: ' + data.x.toFixed(2) + '<br>y: ' + data.y.toFixed(2) + '<br>z: ' + data.z.toFixed(2));
+
+        }, 500);
+      }
+    });
+
+
+
+
+
+
+    var heartrateInterval2 = null;
+    var hr2 = $('#simHeartRate2');
+    hr2.click(function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      hr2.children(".slider").toggleClass("open");
+      if (heartrateInterval2) {
+        clearInterval(heartrateInterval2);
+        heartrateInterval2 = null;
+      } else {
+        heartrateInterval2 = setInterval(function() {
+          var data = {
+            bpm: Math.random() * (160 - 90) + 90,
+            device: '-L5Kt_nen-F3uOhXll2s'
+          };
+          socket.emit('heartrate', data);
+        }, 500);
+      }
+    });
+
+    var temperatureInterval2 = null;
+    var temp2 = $('#simTemperature2');
+    temp2.click(function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      temp2.children(".slider").toggleClass("open");
+      console.log(temperatureInterval2);
+      if (temperatureInterval2) {
+        clearInterval(temperatureInterval2);
+        temperatureInterval2 = null;
+      } else {
+        temperatureInterval2 = setInterval(function() {
+          var data = {
+            temperature: Math.random() * (40 - 33) + 33,
+            device: '-L5Kt_nen-F3uOhXll2s'
+          };
+          socket.emit('temperature', data);
+
+        }, 500);
+      }
+    });
+
+    var movementInterval2 = null;
+    var movement2 = $('#simMovement2');
+    movement2.click(function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      movement2.children(".slider").toggleClass("open");
+      if (movementInterval2) {
+        clearInterval(movementInterval2);
+        movementInterval2 = null;
+      } else {
+        movementInterval2 = setInterval(function() {
+          var data = {
+            x: Math.random() * (1 - 0) + 0,
+            y: Math.random() * (1 - 0) + 0,
+            z: Math.random() * (210 - 20) + 20,
+            fall: 1,
+            device: '-L5Kt_nen-F3uOhXll2s'
+          };
+          socket.emit('movement', data);
+
+        }, 500);
+      }
+    });
+
+
+
+    var heartrateInterval3 = null;
+    var hr3 = $('#simHeartRate3');
+    hr3.click(function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      hr3.children(".slider").toggleClass("open");
+      if (heartrateInterval3) {
+        clearInterval(heartrateInterval3);
+        heartrateInterval3 = null;
+      } else {
+        heartrateInterval3 = setInterval(function() {
+          var data = {
+            bpm: Math.random() * (160 - 90) + 90,
+            device: '-L5KvH-aTUSfnrBDdF1H'
+          };
+          socket.emit('heartrate', data);
+        }, 500);
+      }
+    });
+
+    var temperatureInterval3 = null;
+    var temp3 = $('#simTemperature3');
+    temp3.click(function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      temp3.children(".slider").toggleClass("open");
+      console.log(temperatureInterval3);
+      if (temperatureInterval3) {
+        clearInterval(temperatureInterval3);
+        temperatureInterval3 = null;
+      } else {
+        temperatureInterval3 = setInterval(function() {
+          var data = {
+            temperature: Math.random() * (40 - 33) + 33,
+            device: '-L5KvH-aTUSfnrBDdF1H'
+          };
+          socket.emit('temperature', data);
+
+        }, 500);
+      }
+    });
+
+    var movementInterval3 = null;
+    var movement3 = $('#simMovement3');
+    movement3.click(function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      movement3.children(".slider").toggleClass("open");
+      if (movementInterval3) {
+        clearInterval(movementInterval3);
+        movementInterval3 = null;
+      } else {
+        movementInterval3 = setInterval(function() {
+          var data = {
+            x: Math.random() * (1 - 0) + 0,
+            y: Math.random() * (1 - 0) + 0,
+            z: Math.random() * (210 - 20) + 20,
+            fall: 1,
+            device: '-L5KvH-aTUSfnrBDdF1H'
+          };
+          socket.emit('movement', data);
+
         }, 500);
       }
     });

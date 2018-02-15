@@ -25,9 +25,21 @@ module.exports = (socket) => {
             };
             let collection = 'heartrate/' + result.baby;
             ctrls.database.insert(collection, obj);
-            // TODO: Perform anomaly analysis
         }).catch((error) => {
             log.error('Could not save heartrate data!');
         });
+    });
+
+    ctrls.database.listenChild('heartrate', '-KpedgUfDOSP0dTgoFP0', (snap) => {
+        let data = snap.val()
+        socket.emit('-KpedgUfDOSP0dTgoFP0:heartrate', data)
+    });
+    ctrls.database.listenChild('heartrate', '-L5KsTg-Th-BLKf0n3B-', (snap) => {
+        let data = snap.val()
+        socket.emit('-L5KsTg-Th-BLKf0n3B-:heartrate', data)
+    });
+    ctrls.database.listenChild('heartrate', '-L5KvH-aTUSfnrBDdF1F', (snap) => {
+        let data = snap.val()
+        socket.emit('-L5KvH-aTUSfnrBDdF1F:heartrate', data)
     });
 };

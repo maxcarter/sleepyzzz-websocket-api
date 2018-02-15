@@ -25,9 +25,21 @@ module.exports = (socket) => {
             };
             let collection = 'temperature/' + result.baby;
             ctrls.database.insert(collection, obj);
-            // TODO: Perform anomaly analysis
         }).catch((error) => {
             log.error('Could not save temperature data!');
         });
+    });
+
+    ctrls.database.listenChild('temperature', '-KpedgUfDOSP0dTgoFP0', (snap) => {
+        let data = snap.val()
+        socket.emit('-KpedgUfDOSP0dTgoFP0:temperature', data)
+    });
+    ctrls.database.listenChild('temperature', '-L5KsTg-Th-BLKf0n3B-', (snap) => {
+        let data = snap.val()
+        socket.emit('-L5KsTg-Th-BLKf0n3B-:temperature', data)
+    });
+    ctrls.database.listenChild('temperature', '-L5KvH-aTUSfnrBDdF1F', (snap) => {
+        let data = snap.val()
+        socket.emit('-L5KvH-aTUSfnrBDdF1F:temperature', data)
     });
 };
